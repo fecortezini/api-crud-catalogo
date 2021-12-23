@@ -12,7 +12,7 @@ class Server {
         this.server.use(express.json())
         this.server.use(cors())
         this.server.use(express.urlencoded({ extended: true }))
-        this.server.use('/uploads', express.static('../src/uploads'))
+        this.server.use('/uploads', express.static('uploads'))
         this.server.use('/catalog', catalogRouter)
     }
 }
