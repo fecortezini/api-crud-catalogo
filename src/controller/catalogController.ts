@@ -24,7 +24,15 @@ class CatalogController {
             eps: req.body.eps,
             genre: req.body.genre,
             description: req.body.description,
-            poster: "http://localhost:3500/" + path
+            poster: "http://localhost:3500/" + path,
+            aired: req.body.aired,
+            duration: req.body.duration,
+            type: req.body.type,
+            status: req.body.status,
+            rating: req.body.rating,
+            score: req.body.score,
+            producer: req.body.producer,
+            studio: req.body.studio
         }        
         try {
             await sharp(req.file.path).resize(160,240).toFile(path)
@@ -58,6 +66,15 @@ class CatalogController {
             data.genre = req.body.genre;
             data.description = req.body.description;
             data.poster = "http://localhost:3500/" + path;
+            data.aired = req.body.aired;
+            data.duration = req.body.duration;
+            data.type = req.body.type;
+            data.status = req.body.status;
+            data.rating = req.body.rating;
+            data.score = req.body.score;
+            data.producer = req.body.producer;
+            data.studio = req.body.studio;
+
             try {
                 await sharp(req.file.path).resize(160,240).toFile(path)
                 fs.unlink(req.file.path, ()=> {});
